@@ -1,5 +1,11 @@
-.App {
+.home {
   text-align: center;
+  background-color: #292929;
+  color: aliceblue;
+}
+
+.nav{
+  background-color: hsl(0, 0%, 5%);
 }
 
 .App-logo {
@@ -21,7 +27,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #292929;
 }
 
 .App-link {
