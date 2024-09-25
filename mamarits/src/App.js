@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./assets/mamaritsLogo.jpg";
+import About from "./components/About";
+import Login from "./components/login";
+import MenuPage from "./components/Menu";
 
 function Navbar() {
   return (
@@ -39,6 +42,11 @@ function Navbar() {
             >
               Contact
             </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/menu"
+              className="nav-item nav-link"
+            ></Nav.Link>
           </div>
         </div>
         <div className="navbar-nav ml-auto d-flex flex-row">
@@ -71,17 +79,21 @@ function App() {
           path="/"
           element={<Home />}
         />
-        {/* <Route
+        <Route
           path="/about"
           element={<About />}
         />
         <Route
-          path="/contact"
-          element={<Contact />}
+          path="/login"
+          element={<Login />}
         />
         <Route
-          path="/counter"
-          element={<Counter />}
+          path="/menu"
+          element={<MenuPage />}
+        />
+        {/* <Route
+          path="/contact"
+          element={<Contact />}
         />
         <Route
           path="*"
