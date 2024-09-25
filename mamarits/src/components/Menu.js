@@ -104,6 +104,7 @@ const MenuPage = () => {
                   <div className="col-md-6">
                     <h2>Snacks Menu</h2>
                     <h6>Papa Rey's Chicken Sandwich</h6>
+
                     <h6>Potato Fries</h6>
                     <p2>Cheesy | Chili Con Carne</p2>
                   </div>
