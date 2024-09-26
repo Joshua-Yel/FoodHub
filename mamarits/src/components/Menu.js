@@ -8,7 +8,7 @@ const MenuPage = () => {
     <section>
       <div className="tabs">
         <ul
-          className="nav nav-tabs"
+          className="nav nav-tabs justify-content-center border-dark"
           role="tablist"
         >
           <li
@@ -17,7 +17,9 @@ const MenuPage = () => {
           >
             <NavLink
               href="#mains"
-              className={`nav-link ${activeTab === "mains" ? "active" : ""}`}
+              className={`nav-link ${
+                activeTab === "mains" ? "active" : ""
+              } text-center border-dark`}
               role="tab"
               onClick={() => setActiveTab("mains")}
             >
@@ -30,7 +32,9 @@ const MenuPage = () => {
           >
             <NavLink
               href="#snacks"
-              className={`nav-link ${activeTab === "snacks" ? "active" : ""}`}
+              className={`nav-link ${
+                activeTab === "snacks" ? "active" : ""
+              } text-center border-dark`}
               role="tab"
               onClick={() => setActiveTab("snacks")}
             >
@@ -45,7 +49,7 @@ const MenuPage = () => {
               href="#appetizers"
               className={`nav-link ${
                 activeTab === "appetizers" ? "active" : ""
-              }`}
+              } text-center border-dark`}
               role="tab"
               onClick={() => setActiveTab("appetizers")}
             >
@@ -58,7 +62,9 @@ const MenuPage = () => {
           >
             <NavLink
               href="#coffee"
-              className={`nav-link ${activeTab === "coffee" ? "active" : ""}`}
+              className={`nav-link ${
+                activeTab === "coffee" ? "active" : ""
+              } text-center border-dark`}
               role="tab"
               onClick={() => setActiveTab("coffee")}
             >
@@ -77,16 +83,30 @@ const MenuPage = () => {
             >
               <div className="container">
                 <div className="row">
+                  <div className="col-md-6 banner-left d-flex flex-column justify-content-center">
+                    <section className="menu-selection">
+                      <div className="menu-section__header">
+                        <h3>Main Dishes</h3>
+                      </div>
+                      <ul>
+                        <li className="menu-item">
+                          <h6>Mama Rits Tapsilog</h6>
+                        </li>
+                        <li className="menu-item">
+                          <h6>2 Pcs. Chicken Wings with Rice</h6>
+                          <p>Korean Buffalo | Soy Garlic | Chili | BBQ</p>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
                   <div className="col-md-6">
                     <section className="menu-selection">
                       <div className="menu-section__header">
-                        <h2>Mama Rits Tapsilog</h2>
-                        Smoked daily, all served with Texas toast &amp; pickles.
-                        Sold by the 1/2 lb.
+                        <h3>Snacks Menu</h3>
+                        <h5>Papa Rey's Chicken Sandwich</h5>
                       </div>
                     </section>
                   </div>
-                  <div className="col-md-6"></div>
                 </div>
               </div>
             </section>
