@@ -12,7 +12,6 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import Image1 from '../assets/image1.png'
-import Google_logo from '../assets/google-logo.png';
 
 import { auth } from "./firebase/config";
 // import "./login.css";
@@ -68,8 +67,6 @@ const Login = () => {
           </div>
           <button className="login-button" type="submit" onClick={handleLogin}>Login</button>
           
-          <p>-------------- Sign in with --------------</p>
-          <img className="google-logo" src={Google_logo}></img>
         </form>
     </div>
     
