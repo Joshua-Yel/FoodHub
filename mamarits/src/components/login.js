@@ -18,14 +18,33 @@ import Image3 from '../assets/image3.png'
 import MamaritsLogo from '../assets/mamaritsLogo.jpg'
 
 import { auth } from "./firebase/config";
-// import "./login.css";
-
 import './login.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  const [labelEmail, setEmailLabel] = useState({top:'-7px'});
+  const [labelPassword, setPasswordLabel] =useState({top:'-7px'});
+
+  const handleEmailFocus = () => {
+    setEmailLabel({top:'-20px'});
+  };
+
+  const handlePasswordFocus = () => {
+    setPasswordLabel({top:'-20px'});
+  };
+
+  const handleBlur = () => {
+    if (document.getElementById('email').value === '' && document.getElementById('password').value === ''){
+      setPasswordLabel({top:'-7px'});
+      setEmailLabel({top:'-7px'});
+    }
+  };
+    
+  
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -63,21 +82,36 @@ const Login = () => {
           
           <form>
             <div className="email-container">
-              <label for="email" className="email-label">Email</label>
+              <label 
+                  for="email" 
+                  className="email-label"
+                  style = {{
+                    top: labelEmail.top,
+                  }}
+                >Email</label>
               <input  id="email" 
                       type="text"
                       name="email" 
                       value={email} 
+                      onBlur={handleBlur}
+                      onFocus={handleEmailFocus}
                       onChange={(e) => setEmail(e.target.value)} 
                       placeholder="Enter your email" 
                       required/>
             </div>
             <div className="password-container">
-              <label for="password" className="password-label">Password</label>
+              <label 
+                  for="password" 
+                  className="password-label"
+                  style = {{
+                    top: labelPassword.top,
+                  }}>Password</label>
               <input  id="password"
                       type="password"
                       name="password"
                       value={password}
+                      onBlur={handleBlur}
+                      onFocus={handlePasswordFocus}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
                       required/>
@@ -93,7 +127,7 @@ const Login = () => {
                 }}
               >-------------- Sign in with --------------</p>
 
-              <div>
+              <div className="google-logo-container">
                 <img className="google-logo" onClick={handleGoogleLogin} src={Google_logo}></img>
               </div>
 
