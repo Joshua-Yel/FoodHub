@@ -54,33 +54,54 @@ const Login = () => {
           <img className="image3" src={Image3}/>
           <img className="logo-mamarits" src={MamaritsLogo}/>
         </div>
-        
-        <form>
-          <div className="email-container">
-            <label for="email">Email</label>
-            <input  id="email" 
-                    type="text"
-                    name="email" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
-                    placeholder="Enter your email" 
-                    required/>
+
+        <div className="login-right-section">
+          <div className="buttons-container">
+            <button className="login-button">Login</button>
+            <button className="sign-up-button">Sign up</button>
           </div>
-          <div className="password-container">
-            <label for="password">Password</label>
-            <input  id="password"
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter your password"
-                    required/>
-          </div>
-          <button className="login-button" type="submit" onClick={handleLogin}>Login</button>
           
-          <p>-------------- Sign in with --------------</p>
-          <img className="google-logo" src={Google_logo}></img>
-        </form>
+          <form>
+            <div className="email-container">
+              <label for="email" className="email-label">Email</label>
+              <input  id="email" 
+                      type="text"
+                      name="email" 
+                      value={email} 
+                      onChange={(e) => setEmail(e.target.value)} 
+                      placeholder="Enter your email" 
+                      required/>
+            </div>
+            <div className="password-container">
+              <label for="password" className="password-label">Password</label>
+              <input  id="password"
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      required/>
+            </div>
+
+
+            <div className="lower-section-container">
+              <button className="login-button" type="submit" onClick={handleLogin}>Login</button>
+              
+              <p
+                style= {{
+                  color: "gray"
+                }}
+              >-------------- Sign in with --------------</p>
+
+              <div>
+                <img className="google-logo" onClick={handleGoogleLogin} src={Google_logo}></img>
+              </div>
+
+            </div>
+            
+          </form>
+        </div>
+        
       </div>
       
     </div>
