@@ -13,6 +13,9 @@ import {
 } from "firebase/auth";
 import Image1 from '../assets/image1.png'
 import Google_logo from '../assets/google-logo.png';
+import Image2 from '../assets/image2.png'
+import Image3 from '../assets/image3.png'
+import MamaritsLogo from '../assets/mamaritsLogo.jpg'
 
 import { auth } from "./firebase/config";
 // import "./login.css";
@@ -44,7 +47,14 @@ const Login = () => {
 
   return (
     <div className="login-page-container">
-      <img className="image1" src={Image1}/>
+      <div className="left-right-container">
+        <div className="login-left-section">
+          <img className="image1" src={Image1}/>
+          <img className="image2" src={Image2}/>
+          <img className="image3" src={Image3}/>
+          <img className="logo-mamarits" src={MamaritsLogo}/>
+        </div>
+        
         <form>
           <div className="email-container">
             <label for="email">Email</label>
@@ -71,6 +81,8 @@ const Login = () => {
           <p>-------------- Sign in with --------------</p>
           <img className="google-logo" src={Google_logo}></img>
         </form>
+      </div>
+      
     </div>
     
   );

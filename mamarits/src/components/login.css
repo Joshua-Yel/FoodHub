@@ -1,6 +1,19 @@
+.login-page-container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
 .login-page-container .image1 {
   width: 100px;
   height: 100px;
+
 }
 
 
@@ -8,4 +21,59 @@
 .google-logo {
   width: 100px;
   height: 100px;
+}
+
+
+.login-page-container .left-right-container .login-left-section{
+  background-color: black;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page-container .left-right-container img{
+  position: absolute;
+}
+
+.login-page-container .left-right-container .image2,
+.login-page-container .left-right-container .image3 {
+  width: 30%;
+  height: 30%;
+}
+
+.login-page-container .left-right-container .image2{
+  top: 0;
+  right: 10px;
+}
+
+.login-page-container .left-right-container .image3{
+  top: 60px;
+  right: 60px;
+}
+
+.login-page-container .left-right-container .image1 {
+  
+  bottom: -100px;
+  left: -100px;
+  width: 75%;
+  height: 75%;
+  
+}
+
+.login-page-container .left-right-container .logo-mamarits {
+  bottom: 10px;
+  right: 10px;
+  width: 30%;
+  height: 15%;
+}
+
+/*  left-right container */
+.login-page-container .left-right-container{
+  position: absolute;
+  display: flex;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 70%;
+  width: 60%;
+  border: 1px solid black;
 }

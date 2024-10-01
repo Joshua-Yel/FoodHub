@@ -1,3 +1,7 @@
+.navbar {
+  position: fixed;
+}
+
 .home {
   text-align: center;
   background-color: #292929;
@@ -48,4 +52,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+
+.tooltip-bar {
+  position: absolute;
+  height: 3px;
+  width: 7%;
+  background-color: red;
+  bottom: 0;
+  left: 12%;
+  transition: all ease-in-out 0.5s;
 }
