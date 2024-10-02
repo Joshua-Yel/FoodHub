@@ -1,22 +1,22 @@
-.login-page-container .left-right-container .login-right-section .login .buttons-container .login-button,
-.login-page-container .left-right-container .login-right-section .login .buttons-container .sign-up-button{
+.login-page-container .left-right-container .login-right-section .buttons-container .login-button,
+.login-page-container .left-right-container .login-right-section .buttons-container .sign-up-button{
     padding: 10px 25px;
     font-weight: 600;
     font-size: 15px;
     border-style: none;
-    margin-bottom: 40px;
+    margin-top: 40px;
     border-radius: 2px;
 }
 
 /* Sign up button */
-.login-page-container .left-right-container .login-right-section .login .buttons-container .sign-up-button{
+.login-page-container .left-right-container .login-right-section .buttons-container .sign-up-button{
     background-color: black;
     color: white;
 
 }
 
 /* Login button */
-.login-page-container .left-right-container .login-right-section .login .buttons-container .login-button{
+.login-page-container .left-right-container .login-right-section .buttons-container .login-button{
     background-color: transparent;
     color: black;
 }

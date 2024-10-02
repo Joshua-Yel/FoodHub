@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   BrowserRouter,
   Route,
@@ -69,9 +69,16 @@ const Login = () => {
     }
   };
 
+  const [isSwapped, setIsSwapped] = useState(false);
+
+  const handleSignUpClick = () => {
+    setIsSwapped((prev) => !prev);
+  };
+
+  
   return (
     <div className="login-page-container">
-      <div className="left-right-container">
+      <div className={`left-right-container ${isSwapped ? 'swapped' : ''}`}>
         <div className="login-left-section">
           <img className="image1" src={Image1}/>
           <img className="image2" src={Image2}/>
@@ -80,13 +87,13 @@ const Login = () => {
         </div>
 
         <div className="login-right-section">
-          
+          <div className="buttons-container">
+              <button id="login-button" className="login-button">Login</button>
+              <button id="signUpButton" type="button" className="sign-up-button" onClick={handleSignUpClick}>Sign up</button>
+          </div>
           
           <form className="login">
-            <div className="buttons-container">
-              <button className="login-button">Login</button>
-              <button className="sign-up-button">Sign up</button>
-            </div>
+            
             <div className="email-container">
               <label 
                   for="email" 
@@ -144,7 +151,6 @@ const Login = () => {
             
           </form>
 
-          
         </div>
         
       </div>

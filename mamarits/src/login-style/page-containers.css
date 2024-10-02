@@ -18,12 +18,14 @@
 .login-page-container .left-right-container{
   
   display: flex;
+  flex-direction: row;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   height: 500px;
   flex: 1;
   max-width: 1000px;
   border: 1px solid black;
+  overflow: hidden;
 }
 
 
@@ -35,6 +37,7 @@
   position: relative;
   overflow: hidden;
   display: flex;
+  flex-direction: row;
   flex: 1;
   height: 100%;
   width: 0;
@@ -45,9 +48,11 @@
 
 .login-page-container .left-right-container .login-right-section{
   display: flex;
+  flex-direction: column;
   flex: 1;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
 
@@ -67,4 +72,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+
+.swapped .login-left-section{
+  
+  transform: translateX(100%);
+}
+
+.swapped .login-left-section,
+.swapped .login-right-section{
+  transition: all 1s ease-in-out;
+}
+
+.swapped .login-right-section{
+  transform: translateX(-100%);
 }
