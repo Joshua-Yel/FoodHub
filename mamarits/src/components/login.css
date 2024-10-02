@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  z-index: -100;
 }
 
 .login-page-container .image1 {
@@ -88,7 +88,7 @@
 
 .login-page-container .left-right-container .login-right-section {
   display: flex;
-  flex-direction: column;
+  
   width: 50%;
   height: 100%;
   align-items: center;
@@ -102,20 +102,21 @@
 
 
 /* Login and Sign up button*/
-.login-page-container .left-right-container .login-right-section .buttons-container .login-button,
-.login-page-container .left-right-container .login-right-section .buttons-container .sign-up-button{
+.login-page-container .left-right-container .login-right-section .login .buttons-container .login-button,
+.login-page-container .left-right-container .login-right-section .login .buttons-container .sign-up-button{
   
   padding: 5px 12px;
 }
 
-.login-page-container .left-right-container .login-right-section .buttons-container .login-button{
+.login-page-container .left-right-container .login-right-section .login .buttons-container .login-button{
   background-color: transparent;
   border-style: none;
   font-size: 17px;
   font-weight: 600;
+  color: black;
 }
 
-.login-page-container .left-right-container .login-right-section .buttons-container .sign-up-button{
+.login-page-container .left-right-container .login-right-section .login .buttons-container .sign-up-button{
   color: white;
   background-color: black;
   font-size: 17px;
@@ -125,7 +126,7 @@
 
 
 /* button container */
-.login-page-container .left-right-container .login-right-section .buttons-container{
+.login-page-container .left-right-container .login-right-section .login .buttons-container{
   display: flex;
   margin-bottom: 40px;
 }
@@ -135,12 +136,21 @@
 
 /*Google logo */
 
+.login-page-container .left-right-container .login-right-section form{
+  
+}
+
 
 .login-page-container .left-right-container .login-right-section form .lower-section-container{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.login-page-container .left-right-container .login-right-section .login{
+  visibility: visible;
+  width: 1000px;
 }
 
 /* Inputs and labels*/

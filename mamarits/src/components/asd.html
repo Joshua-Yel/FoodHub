@@ -1,0 +1,64 @@
+<form className="sign-up">
+    <div className="fulName-container">
+      <label for="fullName" className="full-name-label">Full Name</label>
+        <input
+          id="fullName"
+          type="text"
+          name="fullName"
+          
+        />
+    </div>
+    <div className="email-container">
+      
+      <label 
+          for="email" 
+          className="email-label"
+          style = {{
+            top: labelEmail.top,
+          }}
+        >Email</label>
+      <input  id="email" 
+              type="text"
+              name="email" 
+              value={email} 
+              onBlur={handleBlur}
+              onFocus={handleEmailFocus}
+              onChange={(e) => setEmail(e.target.value)} 
+              placeholder="Enter your email" 
+              required/>
+    </div>
+    <div className="password-container">
+      <label 
+          for="password" 
+          className="password-label"
+          style = {{
+            top: labelPassword.top,
+          }}>Password</label>
+      <input  id="password"
+              type="password"
+              name="password"
+              value={password}
+              onBlur={handleBlur}
+              onFocus={handlePasswordFocus}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required/>
+    </div>
+
+
+    <div className="lower-section-container">
+      <button className="login-button" type="submit" onClick={handleLogin}>Confirm</button>
+      
+      <p
+        style= {{
+          color: "gray"
+        }}
+      >-------------- Sign up with --------------</p>
+
+      <div className="google-logo-container">
+        <img className="google-logo" onClick={handleGoogleLogin} src={Google_logo}></img>
+      </div>
+
+    </div>
+    
+  </form>

@@ -15,10 +15,15 @@ import Image1 from '../assets/image1.png'
 import Google_logo from '../assets/google-logo.png';
 import Image2 from '../assets/image2.png'
 import Image3 from '../assets/image3.png'
-import MamaritsLogo from '../assets/mamaritsLogo.jpg'
+import MamaritsLogo from '../assets/mamarits-logo.png'
 
 import { auth } from "./firebase/config";
-import './login.css';
+//import './login.css';
+import '../login-style/login-images.css'
+import '../login-style/login-images.css'
+import '../login-style/input.css'
+import '../login-style/page-containers.css'
+import '../login-style/login-buttons.css'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -75,18 +80,20 @@ const Login = () => {
         </div>
 
         <div className="login-right-section">
-          <div className="buttons-container">
-            <button className="login-button">Login</button>
-            <button className="sign-up-button">Sign up</button>
-          </div>
           
-          <form>
+          
+          <form className="login">
+            <div className="buttons-container">
+              <button className="login-button">Login</button>
+              <button className="sign-up-button">Sign up</button>
+            </div>
             <div className="email-container">
               <label 
                   for="email" 
                   className="email-label"
                   style = {{
                     top: labelEmail.top,
+                    transition: "all ease-in-out 0.15s"
                   }}
                 >Email</label>
               <input  id="email" 
@@ -105,6 +112,7 @@ const Login = () => {
                   className="password-label"
                   style = {{
                     top: labelPassword.top,
+                    transition: "all ease-in-out 0.15s"
                   }}>Password</label>
               <input  id="password"
                       type="password"
@@ -123,7 +131,8 @@ const Login = () => {
               
               <p
                 style= {{
-                  color: "gray"
+                  color: "gray",
+                  
                 }}
               >-------------- Sign in with --------------</p>
 
@@ -134,6 +143,8 @@ const Login = () => {
             </div>
             
           </form>
+
+          
         </div>
         
       </div>
