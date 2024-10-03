@@ -13,15 +13,15 @@ import Contact from "./components/Contact";
 import React, { useState } from "react";
 
 function Navbar() {
-  const [position, setPosition] = useState({ left: 12 });
+  const [position, setPosition] = useState({ left: 10 });
 
   const handleClick = (page) => {
     if (page === "find-food") {
-      setPosition({ left: 12 });
+      setPosition({ left: 10 });
     } else if (page === "about") {
-      setPosition({ left: 43 });
+      setPosition({ left: 41 });
     } else if (page === "contact") {
-      setPosition({ left: 72.5 });
+      setPosition({ left: 70.5 });
     } else {
       console.log("Unknown Button");
     }

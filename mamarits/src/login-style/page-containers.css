@@ -26,6 +26,7 @@
   max-width: 1000px;
   border: 1px solid black;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.432);
 }
 
 
@@ -87,4 +88,14 @@
 
 .swapped .login-right-section{
   transform: translateX(-100%);
+}
+
+.swapped .login-left-section{
+  z-index: 200;
+}
+
+
+.loginSwapped .login-left-section,
+.loginSwapped .login-right-section{
+  transition: all 1s ease-in-out;
 }

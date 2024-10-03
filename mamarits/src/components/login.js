@@ -69,15 +69,22 @@ const Login = () => {
     }
   };
 
+
+  /* Swapping */ 
   const [isSwapped, setIsSwapped] = useState(false);
 
   const handleSignUpClick = () => {
     setIsSwapped((prev) => !prev);
   };
 
+
+  /* Submit  */
+
+  const [buttonStyle, setButtonStyle] = useState({backgroudColor: });
+
   return (
     <div className="login-page-container">
-      <div className={`left-right-container ${isSwapped ? "swapped" : ""}`}>
+      <div className={`left-right-container ${isSwapped ? "swapped" : "loginSwapped"}`}>
         <div className="login-left-section">
           <img
             className="image1"
@@ -102,6 +109,7 @@ const Login = () => {
             <button
               id="login-button"
               className="login-button"
+              onClick={handleSignUpClick}
             >
               Login
             </button>
