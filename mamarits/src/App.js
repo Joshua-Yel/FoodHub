@@ -10,7 +10,23 @@ import Login from "./components/login";
 import MenuPage from "./components/Menu";
 import Contact from "./components/Contact";
 
+import React, { useState } from "react";
+
 function Navbar() {
+  const [position, setPosition] = useState({ left: 12 });
+
+  const handleClick = (page) => {
+    if (page === "find-food") {
+      setPosition({ left: 12 });
+    } else if (page === "about") {
+      setPosition({ left: 43 });
+    } else if (page === "contact") {
+      setPosition({ left: 72.5 });
+    } else {
+      console.log("Unknown Button");
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black">
       <div className="container-fluid">
@@ -26,6 +42,7 @@ function Navbar() {
               as={Link}
               to="/"
               className="nav-item nav-link"
+              onClick={() => handleClick("find-food")}
             >
               Find Food
             </Nav.Link>
@@ -33,6 +50,7 @@ function Navbar() {
               as={Link}
               to="/about"
               className="nav-item nav-link"
+              onClick={() => handleClick("about")}
             >
               About Us
             </Nav.Link>
@@ -40,14 +58,21 @@ function Navbar() {
               as={Link}
               to="/contact"
               className="nav-item nav-link"
+              onClick={() => handleClick("contact")}
             >
-              Contact
+              Contact Us
             </Nav.Link>
             <Nav.Link
               as={Link}
               to="/menu"
               className="nav-item nav-link"
             ></Nav.Link>
+            <div
+              className="tooltip-bar"
+              style={{
+                left: `${position.left}%`,
+              }}
+            ></div>
           </div>
         </div>
         <div className="navbar-nav ml-auto d-flex flex-row">
