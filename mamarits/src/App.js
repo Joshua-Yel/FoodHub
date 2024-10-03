@@ -8,6 +8,7 @@ import Logo from "./assets/mamaritsLogo.jpg";
 import About from "./components/About";
 import Login from "./components/login";
 import MenuPage from "./components/Menu";
+import Contact from "./components/Contact";
 
 import React, { useState } from 'react';
 
@@ -62,7 +63,7 @@ function Navbar() {
               className="nav-item nav-link"
               onClick = {() => handleClick('contact')}
             >
-              Contact
+              Contact Us
             </Nav.Link>
             <Nav.Link
               as={Link}
@@ -118,10 +119,11 @@ function App() {
           path="/menu"
           element={<MenuPage />}
         />
-        {/* <Route
+        <Route
           path="/contact"
           element={<Contact />}
         />
+        {/*
         <Route
           path="*"
           element={<Error />}
