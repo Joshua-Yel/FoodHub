@@ -1,3 +1,7 @@
+.navbar {
+  position: fixed;
+}
+
 .home {
   text-align: center;
   background-color: #292929;
@@ -48,4 +52,90 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+
+.tooltip-bar {
+  position: absolute;
+  height: 3px;
+  width: 7%;
+  background-color: red;
+  bottom: 0;
+  left: 12%;
+  transition: all ease-in-out 0.5s;
+}
+
+.contactPage {
+  width: 600px; /* Adjust width as needed */
+  margin: 50px auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.formGroup textarea {
+  height: 100px; /* Adjust height as needed */
+}
+
+.contact button {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+.success-message,
+.error-message {
+  padding: 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.success-message {
+  background-color: #dff0d8;
+  color: #468847;
+}
+
+.error-message {
+  background-color: #f2dede;
+  color: #a94442;
 }

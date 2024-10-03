@@ -8,6 +8,7 @@ import Logo from "./assets/mamaritsLogo.jpg";
 import About from "./components/About";
 import Login from "./components/login";
 import MenuPage from "./components/Menu";
+import Contact from "./components/Contact";
 
 function Navbar() {
   return (
@@ -91,10 +92,11 @@ function App() {
           path="/menu"
           element={<MenuPage />}
         />
-        {/* <Route
+        <Route
           path="/contact"
           element={<Contact />}
         />
+        {/*
         <Route
           path="*"
           element={<Error />}

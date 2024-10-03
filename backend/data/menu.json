@@ -1,0 +1,483 @@
+
+{
+  "menu": [
+    {
+      "category": "Coffee",
+      "options": ["ICED", "HOT"],
+      "items": [
+        {
+          "name": "Latte",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Americano",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Spanish Latte",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Caramel Macchiato",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "White Mocha",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Mocha",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Vietnamese Latte",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Brown Sugar Dalgona",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Dirty Matcha",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Salted Caramel Latte",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Pistachio Latte",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 89 },
+            { "size": "Large", "price": 119 },
+            { "size": "Small", "price": 79 }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Non-Coffee",
+      "options": ["ICED", "HOT"],
+      "items": [
+        {
+          "name": "Strawberry Milk",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 }
+          ]
+        },
+        {
+          "name": "Blueberry Milk",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 }
+          ]
+        },
+        {
+          "name": "Mixed Berries Milk",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 }
+          ]
+        },
+        {
+          "name": "Chocolate Drink",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Matcha",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        },
+        {
+          "name": "Strawberry Matcha",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 69 },
+            { "size": "Large", "price": 99 },
+            { "size": "Small", "price": 59 }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Frappe",
+      "options": ["ICED"],
+      "items": [
+        {
+          "name": "Cookies & Cream",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Choco Caramel Cookies",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Strawberry & Cream",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Blueberry",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Mixed Berries",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Creamy Chocolate",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Matcha Frappe",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Barako Mudslide",
+          "tags": ["☕"],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Dark Mocha",
+          "tags": ["☕"],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        },
+        {
+          "name": "Caramel Coffee",
+          "tags": [],
+          "sizes": [
+            { "size": "Medium", "price": 99 },
+            { "size": "Large", "price": 129 }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Fruity Pops",
+      "options": ["Large"],
+      "items": [
+        {
+          "name": "Strawberry Pops",
+          "tags": [],
+          "price": 69
+        },
+        {
+          "name": "Green Apple Pops",
+          "tags": ["🌟"],
+          "price": 69
+        },
+        {
+          "name": "Mixed Berries Pops",
+          "tags": [],
+          "price": 69
+        },
+        {
+          "name": "Blueberry Pops",
+          "tags": [],
+          "price": 69
+        },
+        {
+          "name": "Lychee Pops",
+          "tags": [],
+          "price": 69
+        }
+      ]
+    },
+    {
+      "category": "SodaKult",
+      "options": ["Large"],
+      "items": [
+        {
+          "name": "Green Apple SodaKult",
+          "tags": [],
+          "price": 79
+        },
+        {
+          "name": "Strawberry SodaKult",
+          "tags": [],
+          "price": 79
+        },
+        {
+          "name": "Lychee SodaKult",
+          "tags": ["🌟"],
+          "price": 79
+        }
+      ]
+    },
+    {
+      "category": "Appetizers",
+      "items": [
+        {
+          "name": "6 Pcs. Chicken Wings",
+          "options": ["Korean Buffalo", "Soy Garlic", "Chili", "BBQ"],
+          "price": 199
+        },
+        {
+          "name": "Crispy Chicken Skin with Chili Con Carne",
+          "price": 199
+        }
+      ]
+    },
+    {
+      "category": "Salad",
+      "items": [
+        {
+          "name": "Mama Rits Salad with Mango Vinaigrette",
+          "sizes": [
+            { "size": "Solo", "price": 149 },
+            { "size": "Sharing", "price": 249 }
+          ]
+        },
+        {
+          "name": "Chicken Salad with Spicy Ranch Dressing",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Solo", "price": 199 },
+            { "size": "Sharing", "price": 299 }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Pasta",
+      "items": [
+        {
+          "name": "Sisig Carbonara",
+          "tags": ["🌟"],
+          "sizes": [
+            { "size": "Solo", "price": 119 },
+            { "size": "Sharing", "price": 249 }
+          ]
+        },
+        {
+          "name": "Bacon & Mushroom Pesto",
+          "sizes": [
+            { "size": "Solo", "price": 119 },
+            { "size": "Sharing", "price": 249 }
+          ]
+        },
+        {
+          "name": "Spaghetti Bolognese",
+          "sizes": [
+            { "size": "Solo", "price": 119 },
+            { "size": "Sharing", "price": 249 }
+          ]
+        },
+        {
+          "name": "Pancit Chami with Bagnet",
+          "tags": ["🌟"],
+          "description": "Tamis Anghang",
+          "sizes": [
+            { "size": "Solo", "price": 119 },
+            { "size": "Sharing", "price": 249 }
+          ]
+        },
+        {
+          "name": "Crispy Palabok",
+          "price": 149
+        }
+      ]
+    },
+    {
+      "category": "Snacks",
+      "items": [
+        {
+          "name": "Papa Rey's Chicken Sandwich",
+          "tags": ["🌟"],
+          "options": [
+            { "option": "Plain", "price": 99 },
+            {
+              "option": "Flavored",
+              "flavors": ["Korean Buffalo", "Soy Garlic", "Chili", "BBQ"],
+              "price": 119
+            }
+          ]
+        },
+        {
+          "name": "Potato Fries",
+          "options": [
+            { "option": "Cheesy", "price": 99 },
+            { "option": "Chili Con Carne", "price": 119 }
+          ]
+        },
+        {
+          "name": "Chili Con Carne Nachos",
+          "price": 149
+        },
+        {
+          "name": "Chicken Fries Poppers",
+          "price": 199
+        }
+      ]
+    },
+    {
+      "category": "Mains",
+      "items": [
+        {
+          "name": "Mama Rits Tapsilog",
+          "img":"/assets/Bulasing.png",
+          "tags": ["🌟"],
+          "price": 119
+        },
+        {
+          "name": "2 Pcs. Chicken Wings with Rice",
+          "options": ["Korean Buffalo", "Soy Garlic", "Chili", "BBQ"],
+          "price": 99
+        },
+        {
+          "name": "Original Style Beef Pares with Garlic Rice",
+          "price": 99
+        },
+        {
+          "name": "Mama Rit’s Kare Kare with Plain Rice",
+          "options": [
+            { "option": "Tripe & Beef", "price": 139 },
+            { "option": "Crispy Bagnet", "price": 169 }
+          ]
+        },
+        {
+          "name": "Pigar Pigar with Plain Rice",
+          "price": 149
+        },
+        {
+          "name": "Crispy Fried Chicken Chops",
+          "price": 99
+        },
+        {
+          "name": "Crispy Fried Pork Chops",
+          "price": 99
+        },
+        {
+          "name": "Grilled Liempo with Garlic Rice",
+          "price": 129
+        },
+        {
+          "name": "Beef Salpicao with Plain Rice",
+          "price": 109
+        },
+        {
+          "name": "Peri Peri Chicken with Plain Rice",
+          "price": 119
+        }
+      ]
+    },
+    {
+      "category": "Soup",
+      "items": [
+        {
+          "name": "Gotong Batangas with Plain Rice",
+          "description": "Beef, Beef Heart, Tripe, Skin",
+          "sizes": [
+            { "size": "Regular", "price": 119 },
+            { "size": "Large", "price": 289 }
+          ]
+        },
+        {
+          "name": "Bulasing with Plain Rice",
+          "description": "Sinigang sa Pata ng Baka",
+          "sizes": [
+            { "size": "Regular", "price": 139 },
+            { "size": "Large", "price": 249 }
+          ]
+        }
+      ]
+    }
+  ]
+}
