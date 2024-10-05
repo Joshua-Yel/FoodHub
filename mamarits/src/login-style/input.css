@@ -1,5 +1,4 @@
-.login-page-container .left-right-container .login-right-section form .email-container #email,
-.login-page-container .left-right-container .login-right-section form .password-container #password {
+.login-page-container .left-right-container .login-right-section form input {
   padding: 10px;
   border-radius: 2px;
   border:1px solid ;
@@ -10,7 +9,8 @@
 }
 
 .login-page-container .left-right-container .login-right-section form .email-container,
-.login-page-container .left-right-container .login-right-section form .password-container{
+.login-page-container .left-right-container .login-right-section form .password-container,
+.login-page-container .left-right-container .login-right-section form .full-name-container{
   position: relative;
   display: flex;
   width: 100%;
@@ -22,7 +22,8 @@
 }
 
 .login-page-container .left-right-container .login-right-section form .email-container .email-label,
-.login-page-container .left-right-container .login-right-section form .password-container .password-label{
+.login-page-container .left-right-container .login-right-section form .password-container .password-label,
+.login-page-container .left-right-container .login-right-section form .full-name-container .full-name-label{
   position: absolute;
   padding: 0 5px;
   font-size: 13px;
@@ -31,3 +32,4 @@
   top: -7px;
   left: 15px;
 }
+

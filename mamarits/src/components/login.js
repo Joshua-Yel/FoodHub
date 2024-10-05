@@ -32,9 +32,28 @@ const Login = () => {
 
   const [labelEmail, setEmailLabel] = useState({ top: "-7px" });
   const [labelPassword, setPasswordLabel] = useState({ top: "-7px" });
+  const [labelFullName, setFullNameStyle] = useState({visibility: "hidden", padding: "0", margin: "-20px 0"});
+  
+
+  
+  
+  const handleFullName = (button) => {
+    if (button === "signup") {
+      setFullNameStyle({padding: "10px", visibility:"visible", width: "100%", margin: "15px 0"});
+    } else if (button === "login"){
+      setFullNameStyle({padding: "0", margin: "-20px 0" ,visibility: "hidden"});
+    }
+  }
+
+
+
 
   const handleEmailFocus = () => {
     setEmailLabel({ top: "-20px" });
+  };
+
+  const handleFullNameFocus = () => {
+    setFullNameStyle({ top: "-20px"});
   };
 
   const handlePasswordFocus = () => {
@@ -44,10 +63,12 @@ const Login = () => {
   const handleBlur = () => {
     if (
       document.getElementById("email").value === "" &&
-      document.getElementById("password").value === ""
+      document.getElementById("password").value === "" &&
+      document.getElementById("fullName").value === ""
     ) {
       setPasswordLabel({ top: "-7px" });
       setEmailLabel({ top: "-7px" });
+      setFullNameStyle({ top: "-7px" });
     }
   };
 
@@ -80,7 +101,27 @@ const Login = () => {
 
   /* Submit  */
 
-  //const [buttonStyle, setButtonStyle] = useState({backgroudColor: });
+
+  const toggleButton = (clickedButtonId, otherButtonId) =>{
+    document.getElementById(clickedButtonId).disabled = true;
+    document.getElementById(otherButtonId).disabled=false;
+  }
+
+  /* Color change */
+ 
+
+  const [loginButtonStyle, setLoginButtonStyle] = useState({backgroudColor: '', color:''});
+  const [signUpButtonStyle, setSignUpButtonStyle] = useState({backgroudColor: '', color:''});
+
+  const handleButtonStyle = (button) => {
+    if (button === "login"){
+      setLoginButtonStyle({ color: "black", backgroudColor:"transparent"});
+      setSignUpButtonStyle({color:"white", backgroudColor:"black"});
+    }else if(button === "signUp"){
+      setLoginButtonStyle({ color: "white", backgroudColor:"black"});
+      setSignUpButtonStyle({ color: "black", backgroudColor:"transparent"});
+    }
+  }
 
   return (
     <div className="login-page-container">
@@ -109,7 +150,17 @@ const Login = () => {
             <button
               id="login-button"
               className="login-button"
-              onClick={handleSignUpClick}
+              onClick={() => {
+                handleSignUpClick();
+                toggleButton('login-button','signUpButton');
+                handleButtonStyle("login");
+                handleFullName("login");
+              }}
+              style = {{
+                backgroundColor: `${loginButtonStyle.backgroudColor}`,
+                color: `${loginButtonStyle.color}`, 
+                transition: "all ease-in-out 0.5s",
+              }}
             >
               Login
             </button>
@@ -117,13 +168,57 @@ const Login = () => {
               id="signUpButton"
               type="button"
               className="sign-up-button"
-              onClick={handleSignUpClick}
+              onClick={() => {
+                handleSignUpClick();
+                toggleButton('signUpButton', 'login-button');
+                handleButtonStyle("signUp");
+                handleFullName("signup");
+              }}
+              style = {{
+                backgroundColor: `${signUpButtonStyle.backgroudColor}`,
+                color: `${signUpButtonStyle.color}`,
+                transition: "all ease-in-out 0.5s",
+              }}
             >
               Sign up
             </button>
           </div>
 
           <form className="login">
+            <div className="full-name-container"
+              style = {{
+                
+                margin: `${labelFullName.margin}`,
+                visibility: `${labelFullName.visibility}`,
+                transition: "all ease-in-out 0.25s",
+              }}
+              
+            >
+              <label 
+                for="fullName"
+                className="full-name-label"
+                style={{
+                  top: `${labelFullName.top}`,
+                  visibility: `${labelFullName.visibility}`,
+                  transition: "all ease-in-out 0.15s",
+                }}
+              >
+                Full Name
+              </label>
+              <input
+                id="fullName"
+                type="text"
+                onFocus={handleFullNameFocus}
+                onBlur={handleBlur}
+                placeholder="Enter your full name"
+                style ={{
+                  padding: `${labelFullName.padding}`,
+                  width: `${labelFullName.width}`,
+                  visibility: `${labelFullName.visibility}`,
+                  transition: "all ease-in 0.25s",
+                }}
+              />
+            </div>
             <div className="email-container">
               <label
                 for="email"
