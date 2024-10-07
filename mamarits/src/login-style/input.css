@@ -1,0 +1,35 @@
+.login-page-container .left-right-container .login-right-section form input {
+  padding: 10px;
+  border-radius: 2px;
+  border:1px solid ;
+  border-color: gray;
+  width: 100%;
+  max-width: 250px;
+  
+}
+
+.login-page-container .left-right-container .login-right-section form .email-container,
+.login-page-container .left-right-container .login-right-section form .password-container,
+.login-page-container .left-right-container .login-right-section form .full-name-container{
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 250px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.login-page-container .left-right-container .login-right-section form .email-container .email-label,
+.login-page-container .left-right-container .login-right-section form .password-container .password-label,
+.login-page-container .left-right-container .login-right-section form .full-name-container .full-name-label{
+  position: absolute;
+  padding: 0 5px;
+  font-size: 13px;
+  font-family: Roboto;
+  background-color: white;
+  top: -7px;
+  left: 15px;
+}
+
