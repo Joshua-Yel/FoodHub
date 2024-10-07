@@ -33,8 +33,15 @@ const Login = () => {
   const [labelEmail, setEmailLabel] = useState({ top: "-7px" });
   const [labelPassword, setPasswordLabel] = useState({ top: "-7px" });
   const [labelFullName, setFullNameStyle] = useState({visibility: "hidden", padding: "0", margin: "-20px 0"});
-  
+  const [ buttonName, setButtonName ] = useState({text: "Login"});
 
+  const handleButtonName = (button) => {
+    if (button === "login") {
+      setButtonName({text: "Login"});
+    } else if (button == "signup") {
+      setButtonName({text: "Sign up"});
+    }
+  };
   
   
   const handleFullName = (button) => {
@@ -44,6 +51,8 @@ const Login = () => {
       setFullNameStyle({padding: "0", margin: "-20px 0" ,visibility: "hidden"});
     }
   }
+
+  
 
 
 
@@ -155,6 +164,7 @@ const Login = () => {
                 toggleButton('login-button','signUpButton');
                 handleButtonStyle("login");
                 handleFullName("login");
+                handleButtonName("login");
               }}
               style = {{
                 backgroundColor: `${loginButtonStyle.backgroudColor}`,
@@ -173,6 +183,7 @@ const Login = () => {
                 toggleButton('signUpButton', 'login-button');
                 handleButtonStyle("signUp");
                 handleFullName("signup");
+                handleButtonName("signup");
               }}
               style = {{
                 backgroundColor: `${signUpButtonStyle.backgroudColor}`,
@@ -272,15 +283,17 @@ const Login = () => {
                 type="submit"
                 onClick={handleLogin}
               >
-                Login
+                {buttonName.text}
               </button>
 
               <p
+                id="login-or-signup"
                 style={{
                   color: "gray",
                 }}
+                
               >
-                -------------- Sign in with --------------
+                --------------  {buttonName.text} with --------------
               </p>
 
               <div className="google-logo-container">
