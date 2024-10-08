@@ -31,7 +31,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #98a6c4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -176,3 +176,62 @@
 }
 
 
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.contact-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info ul li {
+  margin: 0 10px;
+}
+
+.contact-info ul li span {
+  color: white;
+  font-size: 10px;
+}
+
+.contact-info ul li a,
+.contact-info .social-icons a {
+  color: white;
+  transition: color 0.3s ease-in-out;
+  font-size: 10px;
+}
+
+.contact-info ul li a:hover,
+.contact-info .social-icons a:hover {
+  color: #ff9900;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  justify-content: flex-end;
+}
+
+.social-icons a {
+  color: white; /* Set the default color for social media links */
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+@media (min-width: 768px) {
+  .contact-info ul {
+    flex-direction: row;
+  }
+}
