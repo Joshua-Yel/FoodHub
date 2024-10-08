@@ -139,3 +139,40 @@
   background-color: #f2dede;
   color: #a94442;
 }
+
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  padding: 20px; 
+  background-color: #f8f9fa; 
+  color: #333; 
+  max-width: 800px;
+  margin: 20px auto; 
+  top: 20px;
+  left: 20px;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: left; /* Title aligned to the left */
+}
+
+.about-description {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  line-height: 1.6; /* Improve readability */
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d9534f; /* Example color for the tagline */
+  margin-top: 30px;
+}
+
+
