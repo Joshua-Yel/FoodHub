@@ -9,47 +9,48 @@ function About() {
   return (
   
     <div style={{ backgroundColor: "#fff", padding: "20px" }}>
-      {/* Header Section */}
+      
       <div
         style={{
           backgroundColor: "#000",
           padding: "20px",
           color: "#fff",
           textAlign: "center",
-        }}
-      >
+        }}>
+      
         <h1>About</h1>
       </div>
 
-      {/* Mission Section */}
+      
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
+          flexDirection: "column",
           padding: "20px",
-        }}
-      >
-        {/* Text Section */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-        <div style={{ flex: "1", marginRight: "20px" }}>
-          <h2><center>Mission</center></h2>
-          <p>
-            Mamarits is a family-owned and operated restaurant specializing in
-            authentic Filippino cuisine. We pride ourselves on providing our
-            customers with the finest ingredients and the most delicious dishes. Our
-            mission is to create memorable experiences for our patrons, and we
-            strive to deliver exceptional service and quality ingredients to our
-            customers.
-          </p>
-        </div>
+          
+        }}>
+      
+        
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ marginRight: "20px", width:"50%"}}>
+            <h2><center>Mission</center></h2>
+            <p>
+              Mamarits is a family-owned and operated restaurant specializing in
+              authentic Filippino cuisine. We pride ourselves on providing our
+              customers with the finest ingredients and the most delicious dishes. Our
+              mission is to create memorable experiences for our patrons, and we
+              strive to deliver exceptional service and quality ingredients to our
+              customers.
+            </p>
+          </div>
 
-          <div style={{ flex: "1", textAlign: "left" }}>
+          <div style={{ width:"150px", }}>
             <img
               src={mamaritsLogo}
               alt="mamaritsLogo"
               style={{
-                width: "300px",
+                width: "100%",
                 borderRadius: "8px",
                 borderHeight: "30px",
                 backgroundColor: "black",
@@ -58,29 +59,90 @@ function About() {
           </div>
         </div>
         
-            <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
-              <h2> Food</h2>
-              <img
-                src={Image1}
-                alt="Image1"
-                style={{
-                  width: "200px",
-                  borderRadius: "8px",
-                  borderHeight: "30px",
-                  backgroundColor: "black",
-                  
-                }}
-                />
-                <p>
-                Lorem ipsum odor amet, consectetuer adipiscing elit.
-                Adipiscing consectetur vitae metus eu, augue adipiscing. 
-                Conubia lacinia nulla dis nec pharetra in. Lacinia tellus 
-                netus justo at pulvinar nec. Litora iaculis integer tortor 
-                vivamus tellus?
-                </p> 
-                
 
+        <div>
+          <div style={{ 
+              display:"inline-block",
+              width: "200px",
+            
+            }}>
+            <h2> Food</h2>
+            <img
+              src={Image1}
+              alt="Image1"
+              style={{
+                width: "200px",
+                borderRadius: "8px",
+                borderHeight: "30px",
+                backgroundColor: "black",
+                
+              }}
+            />
+
+            <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit.
+            Adipiscing consectetur vitae metus eu, augue adipiscing. 
+            Conubia lacinia nulla dis nec pharetra in. Lacinia tellus 
+            netus justo at pulvinar nec. Litora iaculis integer tortor 
+            vivamus tellus?
+            </p> 
           </div>
+          <div style={{ 
+            display:"inline-block",
+            width: "200px",
+          
+            }}>
+            <h2> Food</h2>
+            <img
+              src={Image2}
+              alt="Image1"
+              style={{
+                width: "200px",
+                height: "190px",
+                borderRadius: "8px",
+                borderHeight: "30px",
+                backgroundColor: "black",
+                
+              }}
+            />
+
+            <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit.
+            Adipiscing consectetur vitae metus eu, augue adipiscing. 
+            Conubia lacinia nulla dis nec pharetra in. Lacinia tellus 
+            netus justo at pulvinar nec. Litora iaculis integer tortor 
+            vivamus tellus?
+            </p> 
+          </div>
+          <div style={{ 
+            display:"inline-block",
+            width: "200px",
+          
+            }}>
+            <h2> Food</h2>
+            <img
+              src={Image3}
+              alt="Image1"
+              style={{
+                width: "200px",
+                height: "190px",
+                borderRadius: "8px",
+                borderHeight: "30px",
+                backgroundColor: "black",
+                
+              }}
+            />
+
+            <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit.
+            Adipiscing consectetur vitae metus eu, augue adipiscing. 
+            Conubia lacinia nulla dis nec pharetra in. Lacinia tellus 
+            netus justo at pulvinar nec. Litora iaculis integer tortor 
+            vivamus tellus?
+            </p> 
+          </div>
+        </div>
+  
       </div>
     </div>
     /*Lorem ipsum odor amet, consectetuer adipiscing elit. Justo lacus lacinia
