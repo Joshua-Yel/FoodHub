@@ -7,6 +7,7 @@ import Image3 from "../assets/image3.png";
 
 function About() {
   return (
+  
     <div style={{ backgroundColor: "#fff", padding: "20px" }}>
       {/* Header Section */}
       <div
@@ -30,8 +31,9 @@ function About() {
         }}
       >
         {/* Text Section */}
-        <div style={{ flex: "1", textAlign: "left", fontFamily: "Times New Roman" }}>
-          <h2><center> Mission</center></h2>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div style={{ flex: "1", marginRight: "20px" }}>
+          <h2><center>Mission</center></h2>
           <p>
             Mamarits is a family-owned and operated restaurant specializing in
             authentic Filippino cuisine. We pride ourselves on providing our
@@ -42,24 +44,51 @@ function About() {
           </p>
         </div>
 
+          <div style={{ flex: "1", textAlign: "left" }}>
+            <img
+              src={mamaritsLogo}
+              alt="mamaritsLogo"
+              style={{
+                width: "300px",
+                borderRadius: "8px",
+                borderHeight: "30px",
+                backgroundColor: "black",
+              }}
+            />
+          </div>
+        </div>
         
-        <div style={{ flex: "1", textAlign: "left"}}>
-          <img
-            src={mamaritsLogo}
-            alt="mamaritsLogo"
-            style={{
-              width: "300px",
-              borderRadius: "8px",
-              borderHeight: "30px",
-              backgroundColor: "black",
-            }}
-          />
+            <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
+              <h2> Food</h2>
+              <img
+                src={Image1}
+                alt="Image1"
+                style={{
+                  width: "200px",
+                  borderRadius: "8px",
+                  borderHeight: "30px",
+                  backgroundColor: "black",
+                  
+                }}
+                />
+                <p>
+                Lorem ipsum odor amet, consectetuer adipiscing elit.
+                Adipiscing consectetur vitae metus eu, augue adipiscing. 
+                Conubia lacinia nulla dis nec pharetra in. Lacinia tellus 
+                netus justo at pulvinar nec. Litora iaculis integer tortor 
+                vivamus tellus?
+                </p> 
+                
+
+          </div>
+      </div>
     </div>
-  </div>
-</div>
-     
-      
-  );
+    /*Lorem ipsum odor amet, consectetuer adipiscing elit. Justo lacus lacinia
+    laoreet tempor; semper parturient habitant. Aliquam elit eu ipsum
+    tortor praesent aliquet ultrices vestibulum.*/
+            
+
+);
 }
 
 export default About;
