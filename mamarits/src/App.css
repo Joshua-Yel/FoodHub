@@ -1,15 +1,197 @@
 .navbar {
   position: fixed;
 }
+.btn-order{
+  background-color: transparent;
+  border-color: transparent transparent;
+}
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cart-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.flavor-selection, .size-selection, .quantity-selection {
+  margin-top: 10px;
+}
+
+.btn-order {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-close {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-order:hover, .btn-close:hover {
+  opacity: 0.9;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  grid-gap: 20px; /* Spacing between grid items */
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+}
+
+.grid-column {
+  /* No additional styling needed for columns */
+}
+
+.category-title {
+  text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+  color: rgb(255, 255, 255); /* Set text color to white */
+  text-shadow: 0px 0px 3px rgb(0, 0, 0); /* Increase the offset for a thicker stroke */
+  background-clip: text; 
+  -webkit-background-clip: text; /* For Safari */
+}
+
 
 .home {
   text-align: center;
   background-color: #292929;
   color: aliceblue;
+  padding: 100px 0;
+  position: relative;
+  min-height: 100vh;
 }
-/* .home h1 {
-  font-family: 'Fed Pig Sans';
-} */
+
+.home h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.home p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #ddd;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-buttons a {
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.order-now {
+  background-color: #ff4b4b;
+}
+
+.order-now:hover {
+  background-color: #ff3b3b;
+}
+
+.see-menu {
+  background-color: #007bff;
+}
+
+.see-menu:hover {
+  background-color: #0069d9;
+}
+
+.home img {
+  max-width: 100%;
+  object-fit:fill;
+  display:block !important;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+
+.header nav a:hover {
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+  }
+
+  .home-buttons a {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+
+.menu-sizes{
+  margin-bottom: 0;
+}
 
 .nav{
   background-color: hsl(0, 0%, 5%);
@@ -57,6 +239,10 @@
 .navbar-nav {
   position: relative;
 }
+.navbar {
+  position: ablsolute;
+}
+
 
 .nav-item {
   margin: 0 10px;
@@ -138,4 +324,78 @@
 .error-message {
   background-color: #f2dede;
   color: #a94442;
+}
+
+/* menu section css */
+
+/* .menu-section{
+  background-color: #000000;
+  color: white;
+} */
+
+
+
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.contact-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info ul li {
+  margin: 0 10px;
+}
+
+.contact-info ul li span {
+  color: white;
+  font-size: 10px;
+  style:none;
+}
+
+.contact-info ul li a,
+.contact-info .social-icons a {
+  color: white;
+  transition: color 0.3s ease-in-out;
+  font-size: 10px;
+
+}
+
+.contact-info ul li a:hover,
+.contact-info .social-icons a:hover {
+  color: #ff9900;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  font-size: 10px;     
+  justify-content: flex-end;
+
+}
+
+.social-icons a {
+  color: white; /* Set the default color for social media links */
+  margin-left: 10%;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+@media (min-width: 768px) {
+  .contact-info ul {
+    flex-direction: row;
+  }
 }

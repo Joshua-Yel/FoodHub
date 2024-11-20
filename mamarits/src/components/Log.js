@@ -1,34 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  NavLink,
-  Navigate,
-} from "react-router-dom";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Image1 from "../assets/image1.png";
 import Google_logo from "../assets/google-logo.png";
 import Image2 from "../assets/image2.png";
 import Image3 from "../assets/image3.png";
 import MamaritsLogo from "../assets/mamarits-logo.png";
 
-import { auth } from "./firebase/config";
-//import './login.css';
-import "../login-style/login-images.css";
 import "../login-style/login-images.css";
 import "../login-style/input.css";
 import "../login-style/page-containers.css";
 import "../login-style/login-buttons.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("pass123");
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const [labelEmail, setEmailLabel] = useState({ top: "-7px" });
   const [labelPassword, setPasswordLabel] = useState({ top: "-7px" });
@@ -51,22 +38,21 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      setError(err.message);
+
+    // Very basic "authentication" - replace with your actual logic
+    if (email === "test@example.com" && password === "password123") {
+      console.log("Login successful!");
+      navigate("/"); // Redirect to home page after successful login
+    } else {
+      setError("Invalid email or password");
     }
   };
 
+  // Placeholder for Google login - not implemented
   const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (err) {
-      setError(err.message);
-    }
+    console.log("Google login not implemented yet");
   };
 
   const [isSwapped, setIsSwapped] = useState(false);

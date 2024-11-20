@@ -1,75 +1,254 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const MenuCategory = require("./src/Models/menuCategory.model");
+const Order = require("./src/Models/order.model");
+
+require("dotenv").config();
+
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONG_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected successfully");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((error) => console.error("MongoDB connection error:", error));
+
+app.post("/api/menu", async (req, res) => {
+  try {
+    const menuData = req.body;
+    const menu = await MenuCategory.create(menuData);
+    res.status(201).json(menu);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
-const menuItems = require("./data/menu");
-
-app.get("/menu", (req, res) => {
-  res.json(menuItems);
+app.get("/menu", async (req, res) => {
+  try {
+    const menuCategories = await MenuCategory.find();
+    res.json(menuCategories);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching menu data" });
+  }
 });
 
-app.get("/menu/category/:category", (req, res) => {
-  const category = req.params.category.toLowerCase();
+app.get("/menu/category/:category", async (req, res) => {
+  try {
+    const category = req.params.category;
 
-  const menuCategory = menuItems.menu.find(
-    (item) => item.category.toLowerCase() === category
-  );
+    const menuCategory = await MenuCategory.findOne({
+      category: new RegExp(`^${category}$`, "i"),
+    });
 
-  if (!menuCategory) {
-    return res.status(404).json({ message: "Category not found" });
+    if (!menuCategory) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    res.json(menuCategory);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching the category" });
+  }
+});
+app.put("/menu/:id", async (req, res) => {
+  const { id } = req.params;
+  const { options } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid menu item ID" });
   }
 
-  res.json(menuCategory);
-});
+  try {
+    // Step 1: Find the `MenuCategory` document containing the item
+    const menuCategory = await MenuCategory.findOne({ "items._id": id });
+    if (!menuCategory) {
+      console.error("MenuCategory document containing the item not found.");
+      return res.status(404).json({ message: "Menu item not found" });
+    }
+    console.log("MenuCategory found:", menuCategory);
 
-app.get("/menu/:id", (req, res) => {
-  const menuId = parseInt(req.params.id);
-  const menuItem = menuItems.find((p) => p.id === menuId);
+    // Step 2: Locate the specific item within the items array
+    const itemIndex = menuCategory.items.findIndex(
+      (item) => item._id.toString() === id
+    );
+    if (itemIndex === -1) {
+      console.error("Item not found in items array.");
+      return res
+        .status(404)
+        .json({ message: "Menu item not found in items array" });
+    }
 
-  if (!menuItem) {
-    return res.status(404).json({ message: "Menu item not found" });
+    // Step 3: Update the options of the located item within items array
+    menuCategory.items[itemIndex].options = options;
+
+    // Step 4: Save the updated document
+    await menuCategory.save();
+    console.log(
+      "Options updated successfully for item:",
+      menuCategory.items[itemIndex]
+    );
+
+    res.json({
+      message: "Options updated successfully",
+      updatedItem: menuCategory.items[itemIndex],
+    });
+  } catch (error) {
+    console.error("Error updating menu item options:", error);
+    res.status(500).json({ message: "Failed to update menu item options" });
   }
-  res.json(menuItem);
 });
 
-let cart = [];
+app.get("/menu/:id", async (req, res) => {
+  try {
+    const menuId = req.params.id;
 
-app.get("/cart", (req, res) => {
-  res.json(cart);
+    if (!mongoose.Types.ObjectId.isValid(menuId)) {
+      return res.status(400).json({ message: "Invalid menu item ID" });
+    }
+
+    const menuCategory = await MenuCategory.findOne(
+      { "items._id": menuId },
+      { "items.$": 1 }
+    );
+
+    if (
+      !menuCategory ||
+      !menuCategory.items ||
+      menuCategory.items.length === 0
+    ) {
+      return res.status(404).json({ message: "Menu item not found" });
+    }
+
+    const menuItem = menuCategory.items[0];
+    res.json(menuItem);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching the menu item" });
+  }
 });
 
-app.post("/cart", (req, res) => {
-  const { id, quantity } = req.body;
+app.get("/cart", async (req, res) => {
+  try {
+    const cartItems = await Order.find();
+    res.json(cartItems);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch cart items" });
+  }
+});
 
-  const menuItem = menuItems.find((p) => p.id === id);
+app.post("/cart", async (req, res) => {
+  const { id, quantity, size } = req.body;
+  console.log("Request received to add item to cart:", { id, quantity, size });
 
-  if (!menuItem) {
-    return res.status(404).json({ message: "Menu item not found" });
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    console.error("Invalid menu item ID");
+    return res.status(400).json({ message: "Invalid menu item ID" });
   }
 
-  const cartItem = cart.find((item) => item.menu.id === id);
+  try {
+    const menuCategory = await MenuCategory.findOne(
+      { "items._id": id },
+      { "items.$": 1 }
+    );
 
-  if (cartItem) {
-    cartItem.quantity += quantity;
-  } else {
-    cart.push({ menu: menuItem, quantity });
+    if (
+      !menuCategory ||
+      !menuCategory.items ||
+      menuCategory.items.length === 0
+    ) {
+      console.error("Menu item not found");
+      return res.status(404).json({ message: "Menu item not found" });
+    }
+
+    const menuItem = menuCategory.items[0];
+    console.log("Found menu item:", menuItem);
+
+    let price = menuItem.price;
+    if (menuItem.sizes && menuItem.sizes.length > 0) {
+      const sizeObj = menuItem.sizes.find((s) => s.size === size);
+      price = sizeObj ? sizeObj.price : menuItem.price;
+    }
+    console.log("Calculated price:", price);
+
+    const existingOrderItem = await Order.findOne({ "menu._id": id });
+    if (existingOrderItem) {
+      console.log("Item already in cart. Updating quantity and total price...");
+      existingOrderItem.quantity += quantity;
+      existingOrderItem.totalPrice = existingOrderItem.quantity * price;
+      await existingOrderItem.save();
+      console.log("Updated cart item:", existingOrderItem);
+      res.json(existingOrderItem);
+    } else {
+      console.log("Creating new order item...");
+      const newOrder = new Order({
+        menu: menuItem,
+        quantity,
+        size: size || "Regular",
+        price,
+        totalPrice: quantity * price,
+      });
+      await newOrder.save();
+      console.log("New order item saved:", newOrder);
+      res.status(201).json(newOrder);
+    }
+  } catch (error) {
+    console.error("Server error while adding item to cart:", error);
+    res.status(500).json({ error: "Failed to add item to cart" });
   }
-
-  res.json(cart);
 });
 
-app.delete("/cart/:id", (req, res) => {
-  const productId = parseInt(req.params.id);
+app.delete("/cart/:id", async (req, res) => {
+  const productId = req.params.id;
 
-  cart = cart.filter((item) => item.menu.id !== productId);
+  if (!mongoose.Types.ObjectId.isValid(productId)) {
+    return res.status(400).json({ message: "Invalid cart item ID" });
+  }
 
-  res.json(cart);
+  try {
+    const result = await Order.findByIdAndDelete(productId);
+    if (!result) {
+      return res.status(404).json({ message: "Cart item not found" });
+    }
+
+    res.json({ message: "Item removed from cart" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete item from cart" });
+  }
+});
+
+const calculateTotalPrice = async () => {
+  const cartItems = await Order.find();
+  return cartItems.reduce((total, item) => {
+    const price =
+      item.menu.sizes?.find((size) => size.size === item.size)?.price ||
+      item.menu.price ||
+      0;
+    return total + price * item.quantity;
+  }, 0);
+};
+
+app.get("/cart/total", async (req, res) => {
+  try {
+    const totalPrice = await calculateTotalPrice();
+    res.json({ total: totalPrice });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to calculate total price" });
+  }
 });
