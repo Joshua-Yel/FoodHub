@@ -30,10 +30,12 @@ export default function Order() {
         <div className="col-md-3">
           <img
             src={item.img || "https://via.placeholder.com/150"}
-            alt={item.name}
-            className="img-fluid rounded-start"
+            alt=""
+            style={{ width: "150px", height: "150px", objectFit: "cover" }}
+            className="img-fluid rounded-start resized-image"
           />
         </div>
+
         <div className="col-md-9 d-flex align-items-center">
           <div className="card-body ps-5">
             <h5 className="card-title">{item.name}</h5>
@@ -85,12 +87,43 @@ export default function Order() {
     <section className="order-section">
       <div className="container my-4">
         <div className="grid-container">
-          <div className="grid-row">
-            {menuItems.slice(0, 4).map(renderMenuCategory)}
-          </div>
-          <div className="grid-row">
-            {menuItems.slice(4).map(renderMenuCategory)}
-          </div>
+          {/* Filter menuItems to only include the desired categories */}
+          {menuItems
+            .filter((category) =>
+              [
+                "Coffee",
+                "SodaKult",
+                "Appetizers",
+                "Salad",
+                "Pasta",
+                "Snacks",
+                "Mains",
+                "Soup",
+              ].includes(category.category)
+            )
+            .reduce((acc, category, index, array) => {
+              if (index % Math.ceil(array.length / 2) === 0) acc.push([]);
+              acc[acc.length - 1].push(category);
+              return acc;
+            }, [])
+            .map((categoryGroup, rowIndex) => (
+              <div
+                className="grid-row"
+                key={rowIndex}
+              >
+                {categoryGroup.map((category, index) => (
+                  <div
+                    key={index}
+                    className="grid-column"
+                  >
+                    <div className="text-center mb-4">
+                      <h3 className="category-title">{category.category}</h3>
+                    </div>
+                    {category.items.map(renderMenuItem)}
+                  </div>
+                ))}
+              </div>
+            ))}
         </div>
 
         {selectedItem && (
@@ -170,25 +203,33 @@ const AddCart = ({ item, onClose }) => {
   };
 
   return (
-    <div className="cart-overlay">
-      <div className="cart-content card shadow-lg p-4">
-        <h2 className="mb-4">{item.name}</h2>
+    <div className="cart-overlay d-flex justify-content-center align-items-center">
+      <div
+        className="cart-content card shadow-lg p-4 rounded-4"
+        style={{ backgroundColor: "#1f1f1f", color: "#fff", maxWidth: "500px" }}
+      >
+        <h2 className="mb-4 text-center text-danger fw-bold">{item.name}</h2>
 
         {item.options && item.options.length > 0 && (
-          <div className="options-selection mb-3">
+          <div className="options-selection mb-4">
             <label
               htmlFor="option"
-              className="form-label"
+              className="form-label text-white fs-5"
             >
               Options:
             </label>
             <select
               id="option"
-              className="form-select"
+              className="form-select bg-dark text-white border-0 rounded-3"
               value={selectedOption}
               onChange={handleOptionChange}
             >
-              <option value="">Select Option</option>
+              <option
+                value=""
+                disabled
+              >
+                Select Option
+              </option>
               {item.options.map((option, index) => (
                 <option
                   key={index}
@@ -202,20 +243,25 @@ const AddCart = ({ item, onClose }) => {
         )}
 
         {item.flavors && item.flavors.length > 0 && (
-          <div className="flavors-selection mb-3">
+          <div className="flavors-selection mb-4">
             <label
               htmlFor="flavors"
-              className="form-label"
+              className="form-label text-white fs-5"
             >
               Flavors:
             </label>
             <select
               id="flavors"
-              className="form-select"
+              className="form-select bg-dark text-white border-0 rounded-3"
               value={selectedFlavor}
               onChange={handleFlavorChange}
             >
-              <option value="">Select Flavor</option>
+              <option
+                value=""
+                disabled
+              >
+                Select Flavor
+              </option>
               {item.flavors.map((flavor, index) => (
                 <option
                   key={index}
@@ -229,20 +275,25 @@ const AddCart = ({ item, onClose }) => {
         )}
 
         {item.sizes && item.sizes.length > 0 && (
-          <div className="size-selection mb-3">
+          <div className="size-selection mb-4">
             <label
               htmlFor="size"
-              className="form-label"
+              className="form-label text-white fs-5"
             >
               Size:
             </label>
             <select
               id="size"
-              className="form-select"
+              className="form-select bg-dark text-white border-0 rounded-3"
               value={selectedSize}
               onChange={handleSizeChange}
             >
-              <option value="">Select Size</option>
+              <option
+                value=""
+                disabled
+              >
+                Select Size
+              </option>
               {item.sizes.map((size, index) => (
                 <option
                   key={index}
@@ -255,19 +306,35 @@ const AddCart = ({ item, onClose }) => {
           </div>
         )}
 
-        <p className="fw-bold mb-3">Price: php {calculatePrice()}</p>
-        <button
-          className="btn btn-primary me-2"
-          onClick={handleAddToCart}
-        >
-          Add to Cart
-        </button>
-        <button
-          className="btn btn-secondary"
-          onClick={onClose}
-        >
-          Close
-        </button>
+        <p className="fw-bold mb-4 text-danger fs-4">
+          Price: php {calculatePrice()}
+        </p>
+
+        <div className="d-flex justify-content-center">
+          <button
+            className="btn btn-danger me-3 px-5 py-3 rounded-3 shadow-sm border-0"
+            onClick={handleAddToCart}
+            style={{
+              backgroundColor: "#e60000",
+              borderColor: "#e60000",
+              fontSize: "1.1rem",
+            }}
+          >
+            Add to Cart
+          </button>
+          <button
+            className="btn btn-light px-5 py-3 rounded-3 shadow-sm border-0"
+            onClick={onClose}
+            style={{
+              backgroundColor: "#fff",
+              borderColor: "#fff",
+              color: "#212121",
+              fontSize: "1.1rem",
+            }}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

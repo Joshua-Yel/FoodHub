@@ -13,6 +13,7 @@ import "../login-style/page-containers.css";
 import "../login-style/login-buttons.css";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -20,6 +21,55 @@ const Login = () => {
 
   const [labelEmail, setEmailLabel] = useState({ top: "-7px" });
   const [labelPassword, setPasswordLabel] = useState({ top: "-7px" });
+  const [isSwapped, setIsSwapped] = useState(false);
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5000/signup", {
+        username,
+        email,
+        password,
+      });
+
+      console.log("Signup successful:", response.data);
+      navigate("/login"); // Redirect to login page after successful sign-up
+    } catch (error) {
+      console.error("Signup Error:", error.response?.data || error);
+      setError(
+        error.response?.data?.message || "An error occurred during signup."
+      );
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log("Login request data:", { email, password }); // Add this log
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+      });
+      // Store the JWT token in local storage
+      localStorage.setItem("token", response.data.token);
+
+      // Redirect to the home page or another protected route
+      console.log("Log in was successful");
+      navigate("/");
+    } catch (error) {
+      console.error("Login Error:", error);
+      setError("Invalid email or password");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    console.log("Google login not implemented yet");
+  };
+
+  const handleSignUpClick = () => {
+    setIsSwapped((prev) => !prev);
+    setError(null); // Reset error when switching forms
+  };
 
   const handleEmailFocus = () => {
     setEmailLabel({ top: "-20px" });
@@ -39,37 +89,6 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post("http://localhost:5000/login", {
-        // Replace with your backend URL
-        email,
-        password,
-      });
-
-      // Store the JWT token in local storage
-      localStorage.setItem("token", response.data.token);
-
-      // Redirect to the home page or another protected route
-      navigate("/");
-    } catch (error) {
-      console.error("Login Error:", error);
-      setError("Invalid email or password");
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    console.log("Google login not implemented yet");
-  };
-
-  const [isSwapped, setIsSwapped] = useState(false);
-
-  const handleSignUpClick = () => {
-    setIsSwapped((prev) => !prev);
-  };
-
   return (
     <div className="login-page-container">
       <div className={`left-right-container ${isSwapped ? "swapped" : ""}`}>
@@ -77,18 +96,22 @@ const Login = () => {
           <img
             className="image1"
             src={Image1}
+            alt="image1"
           />
           <img
             className="image2"
             src={Image2}
+            alt="image2"
           />
           <img
             className="image3"
             src={Image3}
+            alt="image3"
           />
           <img
             className="logo-mamarits"
             src={MamaritsLogo}
+            alt="logo"
           />
         </div>
 
@@ -97,6 +120,7 @@ const Login = () => {
             <button
               id="login-button"
               className="login-button"
+              onClick={() => setIsSwapped(false)}
             >
               Login
             </button>
@@ -110,10 +134,31 @@ const Login = () => {
             </button>
           </div>
 
-          <form className="login">
+          <form
+            className="login"
+            onSubmit={isSwapped ? handleSignUp : handleLogin}
+          >
+            {isSwapped && (
+              <div className="username-container">
+                <label
+                  htmlFor="username"
+                  className="username-label"
+                >
+                  Username
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your username"
+                  required
+                />
+              </div>
+            )}
             <div className="email-container">
               <label
-                for="email"
+                htmlFor="email"
                 className="email-label"
                 style={{
                   top: labelEmail.top,
@@ -136,7 +181,7 @@ const Login = () => {
             </div>
             <div className="password-container">
               <label
-                for="password"
+                htmlFor="password"
                 className="password-label"
                 style={{
                   top: labelPassword.top,
@@ -158,20 +203,17 @@ const Login = () => {
               />
             </div>
 
+            {error && <p className="error-message">{error}</p>}
+
             <div className="lower-section-container">
               <button
                 className="login-button"
                 type="submit"
-                onClick={handleLogin}
               >
-                Login
+                {isSwapped ? "Sign Up" : "Login"}
               </button>
 
-              <p
-                style={{
-                  color: "gray",
-                }}
-              >
+              <p style={{ color: "gray" }}>
                 -------------- Sign in with --------------
               </p>
 
@@ -180,7 +222,8 @@ const Login = () => {
                   className="google-logo"
                   onClick={handleGoogleLogin}
                   src={Google_logo}
-                ></img>
+                  alt="Google logo"
+                />
               </div>
             </div>
           </form>

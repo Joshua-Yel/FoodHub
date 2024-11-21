@@ -15,16 +15,13 @@ export default function Home() {
             <h1>Welcome to Mamarits!</h1>
             <p>Discover new and exciting recipes from around the world.</p>
             <div>
-              <Button className="order-now col-sm-3 me-2 border-0">
-                Order Now
-              </Button>
               <Button
                 className="see-menu col-sm-3 me-2 "
                 as={Link}
-                to="/menu"
+                to="/order"
                 Name="col-sm-3 me-2 bg-transparent border-0"
               >
-                See Menu
+                Order Now
               </Button>
             </div>
           </div>

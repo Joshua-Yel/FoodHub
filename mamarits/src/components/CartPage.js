@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
@@ -35,7 +36,7 @@ const CartPage = () => {
     }
   };
 
-  //calculate total price
+  // Calculate total price
   const calculateTotal = () => {
     return cart.reduce((acc, curr) => {
       const price =
@@ -47,34 +48,60 @@ const CartPage = () => {
   };
 
   return (
-    <div>
-      <h1>Your Cart</h1>
+    <div className="container my-5">
+      <h1 className="text-center text-white bg-black py-3 rounded">
+        Your Cart
+      </h1>
+
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <div
+          className="alert alert-danger text-center"
+          role="alert"
+        >
+          Your cart is empty
+        </div>
       ) : (
-        cart.map((cartItem, index) => (
-          <div
-            key={cartItem._id}
-            style={{ borderBottom: "1px solid #ccc", padding: "10px" }}
-          >
-            <h4>
-              {cartItem.menu.name} ({cartItem.size || "Regular"})
-            </h4>
-            <p>Quantity: {cartItem.quantity}</p>
-            <p>
-              Price: php {cartItem.price} x {cartItem.quantity} = php{" "}
-              {cartItem.totalPrice}
-            </p>
-            <button onClick={() => removeItemFromCart(cartItem._id)}>
-              Remove
-            </button>
-          </div>
-        ))
+        <div className="list-group">
+          {cart.map((cartItem) => (
+            <div
+              key={cartItem._id}
+              className="list-group-item d-flex justify-content-between align-items-center mb-3"
+              style={{
+                backgroundColor: "#f8f9fa",
+                border: "1px solid #dee2e6",
+              }}
+            >
+              <div>
+                <h5>
+                  {cartItem.menu.name}{" "}
+                  <span className="badge bg-secondary">
+                    {cartItem.size || "Regular"}
+                  </span>
+                </h5>
+                <p className="mb-0">Quantity: {cartItem.quantity}</p>
+                <p className="text-danger fw-bold">
+                  php {cartItem.price} x {cartItem.quantity} = php{" "}
+                  {cartItem.totalPrice}
+                </p>
+              </div>
+              <button
+                className="btn btn-danger"
+                onClick={() => removeItemFromCart(cartItem._id)}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
       )}
 
-      <div>
-        <h3>Total: php {calculateTotal()}</h3>
-        <button>Checkout</button>
+      <div className="bg-black text-white p-4 mt-4 rounded">
+        <h3 className="text-center">
+          Total: <span className="text-danger">php {calculateTotal()}</span>
+        </h3>
+        <div className="text-center">
+          <button className="btn btn-outline-light btn-lg ">Checkout</button>
+        </div>
       </div>
     </div>
   );
