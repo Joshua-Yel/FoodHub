@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import './orderstyle/order.css'
 
 export default function Order() {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  
 
   useEffect(() => {
     const fetchMenuData = async () => {
@@ -136,11 +138,16 @@ export default function Order() {
     </section>
   );
 }
+
+
 const AddCart = ({ item, onClose }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedFlavor, setSelectedFlavor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [count, setCount] = useState(0);
+
+  
 
   const handleOptionChange = (e) => setSelectedOption(e.target.value);
   const handleFlavorChange = (e) => setSelectedFlavor(e.target.value);
@@ -194,6 +201,9 @@ const AddCart = ({ item, onClose }) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
+      setCount((prev) => prev + 1);
+
+      
       const data = await response.json();
       console.log("Item added to orders in DB:", data);
       onClose();

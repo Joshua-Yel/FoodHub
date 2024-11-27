@@ -80,11 +80,27 @@
   transform: translateX(100%);
 }
 
+
+
+.swapped .login-right-section{
+  transform: translateX(-100%);
+}
+
 .swapped .login-left-section,
 .swapped .login-right-section{
   transition: all 1s ease-in-out;
 }
 
-.swapped .login-right-section{
-  transform: translateX(-100%);
+.loginSwapped .login-right-section {
+  transform: translateX(0);
+}
+
+.loginSwapped .login-left-section{
+  transform: translateX(0);
+  z-index: 100
+}
+
+.loginSwapped .login-left-section,
+.loginSwapped .login-right-section{
+  transition: all 1s ease-in-out;
 }

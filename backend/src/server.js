@@ -15,7 +15,7 @@ mongoose.connect("mongodb://localhost/foodhub", {
 
 // Register route
 app.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
@@ -24,7 +24,7 @@ app.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
     res.status(201).json({ message: "User created successfully!" });

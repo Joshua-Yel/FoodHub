@@ -149,7 +149,7 @@ const MenuPage = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <section className="menu-section">
+    <section className="menu-section" >
       <div className="tabs">
         <ul
           className="nav nav-tabs justify-content-center border-dark"

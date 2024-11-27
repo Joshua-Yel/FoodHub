@@ -15,14 +15,14 @@ app.use(cors());
 app.use(express.json());
 
 // Register route
-app.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+app.post("/register", async (req, res) => {
+  const { name, email, password } = req.body;
 
   console.log("Received Signup Data:", req.body); // Log the received data
 
   // Validate input
-  if (!username || !email || !password) {
-    return res.status(400).json({ message: "All fields are required." });
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "All fields are required." });
   }
 
   // Check if the user already exists
@@ -30,7 +30,8 @@ app.post("/signup", async (req, res) => {
   if (existingUser) {
     return res
       .status(400)
-      .json({ message: "User already exists with this email." });
+      .json({ error:'Email is already taken' });
+      
   }
 
   // Password strength validation (you can adjust this as needed)
@@ -45,7 +46,7 @@ app.post("/signup", async (req, res) => {
 
   try {
     const newUser = new User({
-      username,
+      name,
       email,
       password: hashedPassword,
     });
@@ -58,10 +59,12 @@ app.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Error creating user", error });
   }
 });
+
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   console.log("Request Body:", req.body); // Add this log
-
+  
   try {
     // Validate input
     if (!email || !password) {
@@ -108,6 +111,18 @@ mongoose
     });
   })
   .catch((error) => console.error("MongoDB connection error:", error));
+
+
+app.get("",async (req, res) => {
+  try{
+    const orderCount = await Order.countDocuments();
+    res.status(200).json({count:orderCount});
+  } catch (error) {
+    console.error("Error counting orders:", error);
+    res.status(500).json({ error: "Failed to count orders" });
+  }
+})
+
 
 app.post("/api/menu", async (req, res) => {
   try {
@@ -313,6 +328,23 @@ app.delete("/cart/:id", async (req, res) => {
     res.json({ message: "Item removed from cart" });
   } catch (error) {
     res.status(500).json({ error: "Failed to delete item from cart" });
+  }
+});
+
+app.delete('/cart', async (req, res) => {
+  console.log("DELETE /cart route triggered");
+  try {
+    const result = await Order.deleteMany({});
+    console.log("Delete result:", result);
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: 'No items found in the cart' });
+    }
+
+    res.json({ message: 'All items removed from cart' });
+  } catch (error) {
+    console.error("Error deleting items from cart:", error);
+    res.status(500).json({ error: 'Failed to delete items from cart' });
   }
 });
 
