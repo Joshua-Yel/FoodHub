@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import axios from 'axios'
-import {Toaster} from 'react-hot-toast'
+import {Toaster, toast} from 'react-hot-toast'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./assets/mamaritsLogo.jpg";
 import About from "./components/About";
@@ -54,6 +54,7 @@ function Navbar() {
   const deleteAllCartItems = async () => {
     try {
       const response = await axios.delete('http://localhost:5000/cart')
+      toast.success("Log out successfully!")
     } catch (error) {
       console.error('Error deleting cart item: ', error);
     }

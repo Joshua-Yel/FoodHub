@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "6747d000b4c485da98086e7a"
+  },
+  "menu": {
+    "name": "Latte",
+    "sizes": [
+      {
+        "size": "Medium",
+        "price": 69,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f7"
+        }
+      },
+      {
+        "size": "Large",
+        "price": 99,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f8"
+        }
+      },
+      {
+        "size": "Small",
+        "price": 59,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f9"
+        }
+      }
+    ],
+    "tags": [],
+    "_id": {
+      "$oid": "672ac5e37d10d49e38c950f6"
+    },
+    "options": [],
+    "img": "/assets/coffee.png"
+  },
+  "quantity": 1,
+  "size": "Small",
+  "price": 59,
+  "totalPrice": 59,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6747d00db4c485da98086fca"
+  },
+  "menu": {
+    "name": "Latte",
+    "sizes": [
+      {
+        "size": "Medium",
+        "price": 69,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f7"
+        }
+      },
+      {
+        "size": "Large",
+        "price": 99,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f8"
+        }
+      },
+      {
+        "size": "Small",
+        "price": 59,
+        "_id": {
+          "$oid": "672ac5e37d10d49e38c950f9"
+        }
+      }
+    ],
+    "tags": [],
+    "_id": {
+      "$oid": "672ac5e37d10d49e38c950f6"
+    },
+    "options": [],
+    "img": "/assets/coffee.png"
+  },
+  "quantity": 1,
+  "size": "Large",
+  "price": 99,
+  "totalPrice": 99,
+  "__v": 0
+}]

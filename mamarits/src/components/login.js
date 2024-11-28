@@ -110,9 +110,10 @@ const Login = () => {
       navigate("/");
       window.location.reload()
     } catch (error) {
-      toast.error(error)
-      console.error("Login Error:", error);
-      // setError("Invalid email or password");
+      const errorMessage =
+        error.response?.data?.message || "An error occurred during login.";
+      toast.error(errorMessage); // Display the error using react-hot-toast
+      console.error("Login Error:", errorMessage);
     }
   };
  

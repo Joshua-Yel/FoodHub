@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "673e7506331d787f3399b554"
+  },
+  "username": "admin",
+  "email": "test@email.com",
+  "password": "$2a$10$RwNb4NQsqOz8w3YuB9xywu9dKqm.8MlabbqoCYZJMl7Fx42Q2DMq.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673e78a87f7186f68e18eba7"
+  },
+  "username": "user",
+  "email": "user@email.com",
+  "password": "$2a$10$F/u1e3zt447DtaX4WkUwwOQ0Ui/vR7mwiA0bmla8SZlSonoB24WJi",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ea477c91804adb138af50"
+  },
+  "username": "yuri",
+  "email": "test@gmail.com",
+  "password": "$2a$10$46vYdgrV0AboLsX4pBYDoeYqnm/BaJ4JnESqc1ZRQHtgYJFuUHnl.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ea5e9c91804adb138af57"
+  },
+  "username": "clyde",
+  "email": "clyde@email.com",
+  "password": "$2a$10$dwsoFK/4MpVDAJq2ZuTemOAB8tCV6W582GM33fjGoTy6pKGQmVwMu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ede9516b3afaa43c0010c"
+  },
+  "username": "grace",
+  "email": "firstname.lastname@edu.ph",
+  "password": "$2a$10$TMpxdj4clYwKi/LXgjBcHuksMQC1CJqSG1Kx153P7BiFv.6mQa756",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674431dca218e48bfcb3c1ec"
+  },
+  "username": "ador",
+  "email": "clyde.ador@ciit.edu.ph",
+  "password": "$2a$10$qikKFT52CfCx8IiN7BpZIeD5udEFrmHefC2Si4hboHrMH1gaIvZWS",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67462241201a687485ed9de6"
+  },
+  "name": "clydeador",
+  "email": "clyde@g",
+  "password": "$2a$10$4p5hnp2KuP3CLscjdkSUjuDcyq.En.txt9.IVQaRjyw.2YjEAIAMu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674625f6619ec62bc5d5e70b"
+  },
+  "name": "ran",
+  "email": "ran@g",
+  "password": "$2a$10$fBelSvKJBFMiVg4fvHhN5.g/BP6dlaSUdSz9GLR9squTUGlTjY9EO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746261e619ec62bc5d5e70e"
+  },
+  "name": "ranjet",
+  "email": "ran@ggg",
+  "password": "$2a$10$jc3jM8Vq7ZiQi6MMVK6zruHB68tuJysl5Lhwg6GpTFfBu5KEaYyca",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746b1e3f4afca9fbd95666e"
+  },
+  "name": "Example",
+  "email": "example@g",
+  "password": "$2a$10$GqNZj4Eqnvs8Y5WCHSQt5.D5wrlbvlCto2xbEYfHnX1SoN9TcIASu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746e594a08224ac53b25276"
+  },
+  "name": "Ran",
+  "email": "ranjet@gmail",
+  "password": "$2a$10$rnUK6VFalPQSEWDHm.Qq7u1Ntrj8HRncLML3pLS2S4Zl2yCU/qPyK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674748baecb8d3685c90b425"
+  },
+  "name": "John Edison",
+  "email": "Edisonbase07@gmail.com",
+  "password": "$2a$10$dc6QJN6zSzPWlQFSMPTAi.62uqXEK.7xU0DmYMlFJv2RTpm1/ovcK",
+  "__v": 0
+}]
